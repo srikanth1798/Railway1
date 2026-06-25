@@ -1,7 +1,13 @@
 # Use the official Tomcat image
 FROM tomcat:9.0
 RUN apt-get update && \
-    apt-get install -y git maven openjdk-17-jdk
+    apt-get install -y git maven openjdk-17-jdk\
+    
+WORKDIR /myapp
+COPY . /myapp
+
+RUN mvn clean package
+
 # Copy your WAR file into the webapps directory
 COPY target/*.war /usr/local/tomcat/webapps/
 
