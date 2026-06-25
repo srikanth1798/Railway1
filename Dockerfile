@@ -1,18 +1,15 @@
-# Use the official Tomcat image
-FROM tomcat:9.0
+# Use the official Tomcat image with Java 17 pre-installed
+FROM tomcat:9.0-jdk17
+
+# Notice the clean separation here
 RUN apt-get update && \
-    apt-get install -y git maven openjdk-17-jdk\
-    
+    apt-get install -y git maven
+
 WORKDIR /myapp
 COPY . /myapp
 
 RUN mvn clean package
+RUN cp target/*.war /usr/local/tomcat/webapps/
 
-# Copy your WAR file into the webapps directory
-COPY target/*.war /usr/local/tomcat/webapps/
-
-# Expose the default Tomcat port
 EXPOSE 8080
-
-# Start Tomcat
 CMD ["catalina.sh", "run"]
