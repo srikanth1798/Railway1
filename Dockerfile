@@ -1,6 +1,6 @@
 # Use the official Tomcat image
 FROM tomcat:9.0
-RUN RUN sudo apt update && \
+RUN sudo apt update && \
     sudo apt install git && \
     sudo apt install maven && \
     sudo apt install openjdk-17-jdk
