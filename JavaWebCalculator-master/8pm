@@ -1,0 +1,319 @@
+ls -- to show the lists
+mkdir -- to create a dir (mkdir meesho)  (mkdir meesho{1..100})
+touch -- to create a files (touch file.txt)  (touch file{1..40}.txt)
+rm -rf -- it is used to delete files and dir
+cp -- to copy the files (cp -R file.txt /home/ec2-user/)
+cd -- change dir
+cat -- it will ead the content of file
+pwd -- present woking diectory
+mv -- it is used to move file and dir using this we can change the name of files and dir
+we have 2 users
+default -- ec2-user
+
+admin privilages user -- root --sudo -i  or  sudo su -
+
+
+editors
+
+nano-- nano file.txt 
+
+to save -- ctl+x==y
+
+
+vi-- vi file.txt
+insert -- i
+tosave -- esc :wq press enter
+
+vim -- vim file.txt
+inser -- i
+to save -- esc :wq press enter
+
+
+permissions
+
+read -- 4
+
+write -- 2  4+2=6
+
+execute -- 1 4+2+1=7
+
+
+
+chmod 444 file.txt
+
+chmod 666 file.txt
+
+chmod 777 file.txt
+
+
+
+
+
+
+
+
+task -- 1
+
+launch ec2 instance
+
+connect to terminal
+
+create 100dir
+create 40 files
+copy the 10 file to fist 5 dir
+write the all commands in filenum 39
+
+
+
+task --2
+
+launch ec2-instance
+
+connect to teminal
+
+create 1000 dir
+
+create 100 files
+
+move 10 files to 1 t 10 dir
+give files to write permissions
+give 1000 dir to execute permissions
+
+cidr-- classless inter domain range
+
+cidr.xyz
+
+task -- 3
+
+create vpc 10.0.0.0/18
+create igw-- intenet gateways
+attach igw to vpc
+
+
+https://www.solarwinds.com/free-tools/advanced-subnet-calculator
+
+task -- 4
+
+create vpc 10.0.0.0/20
+create igw
+create subnets
+create route table
+
+launch ec2 instance 
+create file.txt and type all commands using of vim editor
+
+
+task -- 5
+
+create vpc 10.0.0.0/18
+create igw
+create subnets
+create route table
+create secuity groups
+
+launch ec2 instance / t2.micro
+
+attach your vpc
+create 100 files
+give eecute pemissions to all files
+
+
+task-- 6
+
+create vpc 4000 ips
+create subnet
+create rt
+create igw
+create sg
+launch instance with ubuntu ami
+connect to terminal
+create 20 files
+give execute permissions to all files
+
+
+Mount volume 
+
+ 1  ls
+    2  lsblk
+    3  df -h
+    4  lsblk
+    5  mkdir mount\
+    6  mkdir mount
+    7  ls
+    8  mkfs.ext4 /dev/xvdb
+    9  sudo mkfs.ext4 /dev/xvdb
+   10  sudo mount /dev/xvdb mount
+   11  df -h
+   12  ls
+   13  history
+
+
+   creating volume and mount vlume
+
+=> create volume 
+=> select your volume and attached to instance 
+=> go to teminal df -h
+=> lsblk -- list block storage
+=> format vol (sud mkfs.ext4 /dev/xvdb)
+=>mount the volume 
+=> create a dir and use command (sud mount /dev/xvdb mount)
+=> check with df -h
+=> it will shows ou usage disk space of vlume  (/dev/xvdb  4G 24K   42G   1% /home/ec2-user/munt)
+
+
+task --7
+
+create vpc 16000 ip's
+create igw
+create subnets
+create route tables
+create sg
+launch the ec2 instance with created vpc
+create volume and attach to instance and mount it
+create snapshot and create ami using of snapshot launch instance with AMI
+
+Modifyying volume
+
+df -h
+   22  lsblk
+   23  sudo growpart /dev/xvda 1
+   24  df -h
+   25  sudo xfs_growfs -d /
+   26  df -h
+   27  history
+
+
+task --8
+
+create vpc 5000 ips
+launch ec2 instance with 20gb volume
+modify volume to 40gb 
+create snap shot of volume and create ami and launch instance
+
+
+task -- 9
+ create vpc 10000 ip's with compnents
+ launch ec2 instance with 15gb vol
+ create alb tg
+
+
+task -- 10
+
+create vpc 10000 ip's
+create asg
+create alb tg
+create github
+
+
+https://dev.mysql.com/downloads/workbench/
+
+
+task -- 11
+
+create vpc 15000 ip's
+create asg
+create alb tg
+create rds check with mysql wok bench
+
+
+task -- 12
+
+create vpc igw subnets rt sg with cloud formation
+
+
+task-- 13
+
+create vpc igw subnets rt sg alb tg 
+
+Pravallika@123#$
+
+
+
+task -- 14
+
+create vpc igw alb tg asg using cloud fomation
+create s3 bucket
+
+
+deployment
+
+httpd
+
+   48  sudo yum -y install httpd
+   49  sudo systemctl start httpd
+   50  sudo systemctl enable httpd
+   51  sudo systemctl status httpd
+   52  ls
+   53  sudo yum -y install git
+   54  git --version
+   55  ls
+
+   57  sudo git clone https://github.com/Mani137/food.git
+   58  ls
+   59  cd food/
+   60  ls
+   61  cp -R * /var/www/html/
+   62  sudo cp -R * /var/www/html/
+   63  cd /var/www/html/
+   64  ls
+   65  cd
+   66  sudo systemctl restart httpd
+   67  history
+nginx
+
+  1  ls
+    2  sudo yum -y install nginx
+    3  sudo systemctl start nginx
+    4  sudo systemctl enable nginx
+    5  sudo yum -y install git
+   
+    7  sudo git clone https://github.com/Mani137/Netflix-Clone.git
+    8  ls
+    9  cd mario/
+   10  ls
+   11  cp -R * /usr/share/nginx/html/
+   12  sudo cp -R * /usr/share/nginx/html/
+   13  ls
+   14  sudo systemctl restart ngninx
+   15  sudo systemctl start ngninx
+   16  sudo systemctl status ngninx
+   17  sudo yum -y install nginxs
+   18  sudo systemctl start ngninx
+   19  cd
+   20  sudo systemctl restart ngninx
+
+
+task -- 15
+
+create vpc using cloud formation
+launch instances 
+deploy httpd and ngin projects
+
+
+github
+
+1  sudo yum -y install github
+    2  sudo yum -y install git
+    3  git --version
+    4  mkdir git
+    5  ls
+    6  cd git/
+    7  ls -a
+    8  git init
+    9  ls -a
+   10  touch file
+   11  ls
+   12  git add *
+   13  git commit -m "i am pushing files" *
+   14  git branch
+   15  git branch -M main
+   16  git branch
+   17  git remote add origin https://github.com/Mani137/usclass.git
+   18  git push -u origin main
+   19  history
+
+
+task --16
+create vpc with 12000 ip's though cloud formation
+launch instance
+create 20 files and push to github
